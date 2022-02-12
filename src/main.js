@@ -5,7 +5,9 @@
 var savedCovers = [
   new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 ];
-var currentCover = Cover
+
+//var currentCover = Cover
+
 
 // Add your event listeners here 👇
 
@@ -26,6 +28,9 @@ var userTitle = document.getElementById('title');
 var userDescriptor1 = document.getElementById('descriptor1');
 var userDescriptor2 = document.getElementById('descriptor2');
 var createBookButton = document.querySelector('.create-new-book-button');
+var currentCover = new Cover(userCover.value, userTitle.value, userDescriptor1.value, userDescriptor2.value)
+//var currentCover = new Cover(userCover.value, userTitle.value, userDescriptor1.value, userDescriptor2.value)
+
 
 
 window.addEventListener("click", clickHandler);
@@ -49,24 +54,31 @@ function clickHandler(event) {
     viewSavedCovers()
   } else if (event.target.classList.contains("home-button")){
     viewHome()
-  }else if (event.target.classList.contains("create-new-book-button")){
+  } else if (event.target.classList.contains("create-new-book-button")){
     createNewBookButton()
+  } else if (event.target.classList.contains("save-cover-button")){
+    saveCover()
   }
 }
 
+//var book1 = new Cover(userCover.value, userTitle.value, userDescriptor1.value, userDescriptor2.value)
+
+
 function createNewBookButton() {
-  var book1 = new Cover(userCover.value, userTitle.value, userDescriptor1.value, userDescriptor2.value)
-  event.preventDefault()
-  currentTitle.innerText = book1.title;
-  currentImage.src = book1.cover;
-  currentTagLine1.innerText = book1.tagline1;
-  currentTagLine2.innerText = book1.tagline2;
+  event.preventDefault();
+  var currentCover = new Cover(userCover.value, userTitle.value, userDescriptor1.value, userDescriptor2.value)
+  currentTitle.innerText = currentCover.title;
+  currentImage.src = currentCover.cover;
+  currentTagLine1.innerText = currentCover.tagline1;
+  currentTagLine2.innerText = currentCover.tagline2;
   viewHome()
   titles.push(userTitle.value);
   covers.push(userCover.value);
   descriptors.push(userDescriptor1.value);
   descriptors.push(userDescriptor2.value);
+  savedCovers.push(currentCover);
 }
+
 
 function makeNewCover() {
   hideElement(homeView);
@@ -76,6 +88,14 @@ function makeNewCover() {
   showElement(homeButton);
 }
 
+function saveCover () {
+savedCovers.push(currentCover);
+//   savedCovers.push(book1);
+//   // covers.push(userCover.value);
+//   // descriptors.push(userDescriptor1.value);
+//   // descriptors.push(userDescriptor2.value);
+}
+
 function viewSavedCovers() {
   hideElement(homeView);
   hideElement(showFormView);
@@ -83,6 +103,7 @@ function viewSavedCovers() {
   hideElement(randomCoverButton);
   hideElement(saveCoverButton)
   showElement(homeButton);
+  return savedCovers
 }
 
 function viewHome() {
