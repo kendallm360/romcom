@@ -9,10 +9,7 @@ var currentCover = Cover
 
 // Add your event listeners here 👇
 
-
 // Create your event handlers and other functions here 👇
-
-
 
 var homeView = document.querySelector(".home-view");
 var showFormView = document.querySelector(".form-view");
@@ -24,18 +21,24 @@ var currentTitle = document.querySelector('.cover-title');
 var currentImage = document.querySelector('.cover-image');
 var currentTagLine1 = document.querySelector('.tagline-1');
 var currentTagLine2 = document.querySelector('.tagline-2');
-
+var userCover = document.getElementById('cover');
+var userTitle = document.getElementById('title');
+var userDescriptor1 = document.getElementById('descriptor1');
+var userDescriptor2 = document.getElementById('descriptor2');
+var createBookButton = document.querySelector('.create-new-book-button');
 
 
 window.addEventListener("click", clickHandler);
 window.addEventListener("load", randomCover);
 
 
-//redo for hide element
-// function hideElement(element) {
-//   document.querySelector(`.${element}`).classList.add("hidden");
-// }
+ function showElement(elementVar) {
+  elementVar.classList.remove("hidden")
+}
 
+ function hideElement(elementVar) {
+   elementVar.classList.add("hidden")
+}
 
 function clickHandler(event) {
   if (event.target.classList.contains("make-new-button")){
@@ -46,42 +49,51 @@ function clickHandler(event) {
     viewSavedCovers()
   } else if (event.target.classList.contains("home-button")){
     viewHome()
+  }else if (event.target.classList.contains("create-new-book-button")){
+    createNewBookButton()
   }
 }
 
+function createNewBookButton() {
+  var book1 = new Cover(userCover.value, userTitle.value, userDescriptor1.value, userDescriptor2.value)
+  event.preventDefault()
+  currentTitle.innerText = book1.title;
+  currentImage.src = book1.cover;
+  currentTagLine1.innerText = book1.tagline1;
+  currentTagLine2.innerText = book1.tagline2;
+  viewHome()
+  titles.push(userTitle.value);
+  covers.push(userCover.value);
+  descriptors.push(userDescriptor1.value);
+  descriptors.push(userDescriptor2.value);
+}
 
 function makeNewCover() {
-  //hideHomeView.innerHTML += ".view home-view hidden";
-  //showFormView.innerHTML = ""
-  homeView.classList.add("hidden");
-  randomCoverButton.classList.add("hidden");
-  saveCoverButton.classList.add("hidden");
-  //hideElement("home-view");......referenced in line33-34(hide elementfunction)
-  showFormView.classList.remove("hidden");
-  homeButton.classList.remove("hidden");
+  hideElement(homeView);
+  hideElement(randomCoverButton);
+  hideElement(saveCoverButton);
+  showElement(showFormView);
+  showElement(homeButton);
 }
 
 function viewSavedCovers() {
-  homeView.classList.add("hidden");
-  showFormView.classList.add("hidden");
-  savedView.classList.remove("hidden");
-  randomCoverButton.classList.add("hidden");
-  saveCoverButton.classList.add("hidden");
-  homeButton.classList.remove("hidden");
+  hideElement(homeView);
+  hideElement(showFormView);
+  showElement(savedView);
+  hideElement(randomCoverButton);
+  hideElement(saveCoverButton)
+  showElement(homeButton);
 }
 
 function viewHome() {
-  homeView.classList.remove("hidden");
-  showFormView.classList.add("hidden");
-  savedView.classList.remove("hidden");
-  randomCoverButton.classList.remove("hidden");
-  saveCoverButton.classList.remove("hidden");
-  homeButton.classList.add("hidden");
+  showElement(homeView);
+  hideElement(showFormView);
+  hideElement(savedView);
+  showElement(randomCoverButton);
+  showElement(saveCoverButton);
+  hideElement(homeButton);
 }
 
-
-
-// //lines 39-46(next8) invokes all the randomness at button click random
 function randomCover() {
 currentTitle.innerText = getRandomBookInfo(titles);
 currentImage.src = getRandomBookInfo(covers);
@@ -89,7 +101,6 @@ currentTagLine1.innerText = getRandomBookInfo(descriptors);
 currentTagLine2.innerText = getRandomBookInfo(descriptors);
 }
 
-//line for randomness below
 function getRandomBookInfo(bookInfo) {
   return bookInfo[Math.floor(Math.random() * bookInfo.length)];
 }
