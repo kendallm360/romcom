@@ -1,13 +1,15 @@
-# RomCom
+# Romantic Novel Creater
+###### Project by Kendall M and Shane W
+## Project Goals
+Users can access the webpage and can try out the features [here](https://shanekwarning.github.io/romcom/). On our webage you can click the different buttons to access different features of the site.
 
-A boilerplate repo. 
+  * Show New Random Cover, will generate a new radom image, title, and descriptors.
+  * Save Cover, will allow the user to save the current shown cover to view later.
+  * View Saved Covers, will show all covers that the user has saved.
+  * Make Your Own Cover, this allows users to input their own values that will then be used to generate a custom book cover. Make note that to have an image generate, the user must paste a link to an image in the "Cover" input area.
 
-## Set Up
-1. ONE teammate: fork this boilerplate repository 
-2. Clone down your new, forked repo
-3. cd into the repository
-4. Open it in your text editor
-5. View the project in the browser by running open index.html in your terminal
-6. Add all project partners and your assigned instructor as collaborators on the repository
-
-The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/romcom-pair.html)
+##### Future Additions
+  * Ability to have users delete saved covers.
+  * Be able to view the covers on a larger scale.
+  * Be able to drag and drop saved covers into the order they would like them to display on their View Saved Cover Page.
+  
