@@ -14,3 +14,8 @@ Users can access the webpage and can try out the features [here](https://shanekw
   * Be able to view the covers on a larger scale.
   * Be able to drag and drop saved covers into the order they would like them to display on their View Saved Cover Page.
   
+##### Technologies Used
+  * Atom
+  * GitHub
+  * Console Developer Tools
+  * .JS files, .CSS files and .HTML files
