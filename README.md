@@ -19,7 +19,7 @@
   * .JS files, .CSS files and .HTML files
 
 ### Visualization
-[gif](https://media.giphy.com/media/nywRRChfil8E3Tn0th/giphy.gif)
+![gif](https://media.giphy.com/media/nywRRChfil8E3Tn0th/giphy.gif)
 
 ### Deployed Page
 Users can access the webpage and can try out the features [here](https://kendallm360.github.io/romcom/). 
