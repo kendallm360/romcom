@@ -18,6 +18,9 @@
   * Console Developer Tools
   * .JS files, .CSS files and .HTML files
 
+### Visualization
+- Click [here](https://media.giphy.com/media/nywRRChfil8E3Tn0th/giphy.gif) to see a demonstartion of the app.
+
 ### Deployed Page
 Users can access the webpage and can try out the features [here](https://kendallm360.github.io/romcom/). 
 
